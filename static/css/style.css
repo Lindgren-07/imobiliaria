@@ -68,7 +68,7 @@ nav{
     justify-content: space-around;
 }
 
-#fundo{
+.fundo{
     background-image: url('/static/imagens/predLuxo1.jpeg');
     background-repeat: no-repeat;
     background-size: 100%;

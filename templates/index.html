@@ -1,28 +1,60 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>bomnegócio</title>
-            <meta charset="utf-8">
-            <link rel="stylesheet" href="/static/css/style.css">
-        </head>
-        <body>
-            <nav>
-                <ul id="lista-menu">
-                        <li><img id="predio_menu" src="/static/imagens/predios_azul.png" alt="predio_menu"></li>
-                        <li><a href="index.html">Login</a></li>
-                        <li><a>Sobre nós</a></li>
-                        <li><a href="cadastrar.html">Cadastrar</a></li>
-                        <li><a>Principal</a></li>
-                </ul>
+<html>
+
+<head>
+    <title>bomnegócio</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <nav>
+        <ul id="lista-menu">
+            <li><img id="predio_menu" src="/static/imagens/predios_azul.png" alt="predio_menu"></li>
+            <li><a href="/index">Login</a></li>
+            <li><a>Sobre nós</a></li>
+            <li><a href="/cadastrar">Cadastrar</a></li>
+            <li><a>Principal</a></li>
+        </ul>
+    </nav>
+
+    <section class="fundo">
+        <div class="form_fundo">
+            <h1>Login</h1>
+            <div class="form_frente">
+                <form action="/login" method="post">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" placeholder="digite seu nome aqui" required>
+                    <br>
+                    <br>
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" placeholder="digite sua senha aqui" required>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn">ENTRAR</button>
 
 
 
-            </nav>
+
+
+                </form>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+    </section>
 
 
 
 
 
 
-        </body>
-    </html>
+</body>
+
+</html>

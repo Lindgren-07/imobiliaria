@@ -11,19 +11,20 @@
     <nav>
         <ul id="lista-menu">
             <li><img id="predio_menu" src="/static/imagens/predios_azul.png" alt="predio_menu"></li>
-            <li><a href="index.html">Login</a></li>
+            <li><a href="/index">Login</a></li>
             <li><a>Sobre nós</a></li>
-            <li><a href="cadastrar.html">Cadastrar</a></li>
+            <li><a href="/cadastrar">Cadastrar</a></li>
             <li><a>Principal</a></li>
         </ul>
     </nav>
 
-    <section id="fundo">
+    <section class="fundo">
 
         <div class="form_fundo">
             <h1>Cadastrse-se</h1>
             <div class="form_frente">
-                <form action="/cadastrar" method="post">
+                <form action="/cadastrarUsuario" method="post">
+
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" placeholder="digite seu nome aqui" required>
                     <br>
