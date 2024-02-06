@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#lista-menu{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    color: black;
+    align-items: center;
+}
+
+li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    position: relative;
+    transition:0.2s; 
+}
+
+a::after{
+    content: " ";
+    width: 0%;
+    height: 4px;
+    background-color:rgb(8, 83, 152);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition:0.5s ease-in-out;
+
+}
+
+a:hover::after{
+width: 100%;
+
+}
+
+nav{
+    background-color: black;
+}
+
+#predio_menu{
+    width: 60%;
+    height: 50px;
+
+}
+
+.form_fundo{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: black;
+    width: 40%;
+    height: 80%;
+    opacity: 0.9;
+
+    justify-content: center;
+}
+
+.informacoes_form{
+    display: flex;
+    justify-content: space-around;
+}
+
+#fundo{
+    background-image: url('/static/imagens/predLuxo1.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    opacity: 0.9;
+    color: white;
+    height: 600px;
+    justify-content: center;
+    font-size: 17px;
+}
+
+footer{
+    background-color: black;
+    height: 50px;
+    
+}
+
+.btn{
+    background-color: white;
+    color:black;
+    height: 22px;
+    width: 33%;
+    border-radius: 12px;
+}
+
+.btn:hover{
+    background-color:rgb(8, 83, 152);
+    color: white;
+    cursor: pointer;
+}
+
