@@ -19,6 +19,12 @@
     </nav>
 
     <section class="fundo">
+        {% set menssagem = get_flashed_messages() %}
+        {% if menssagem %}
+            <div class="menssagem_flash">
+                {{menssagem[0]}}
+            </div>
+        {% endif %}
         <div class="form_fundo">
             <h1>Login</h1>
             <div class="form_frente">

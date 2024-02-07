@@ -1,5 +1,6 @@
-from flask import Flask,redirect,render_template,request
+from flask import Flask,redirect,render_template,request,flash
 import json
+import os.path
 
 app = Flask(__name__)
 
@@ -43,11 +44,36 @@ def cadastrarUsuario():
 
     print(nome,senha,email,anoNasc,sexo)
 
-    with open('usuarios.json', 'a') as usuariosTemp:
-        json.dump(usuarios,usuariosTemp,indent=10)
-        usuariosTemp.write(' ') 
-        usuariosTemp.write('\n') 
-    return redirect('/')
+    
+        
+    if os.path.isfile('usuarios.json') and os.path.getsize('usuarios.json') > 0:
+        with open('usuarios.json') as usuarioTemp:
+            usuariospy = json.load(usuarioTemp)
+    else:
+        usuariospy = []
+    
+    usuariospy.append(usuarios)
+
+    with open('usuarios.json', 'w') as gravarTemp:
+        json.dump(usuariospy,gravarTemp,indent=4)
+
+    
+
+    flash(f'{nome} cadastrado(a) com sucesso ! ')
+    return render_template('cadastrar.html')
+
+
+@app.route('/login', methods=['POST'])
+def loginAdm():
+
+    nome = request.form.get('nome')
+    senha = request.form.get('senha')
+
+    if nome == 'adm' and senha == '000':
+        return render_template('adm.html')
+    else:
+        flash('nome ou senha inválido')
+        return redirect('/')
 
 
 
