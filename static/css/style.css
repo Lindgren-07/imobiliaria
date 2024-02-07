@@ -84,8 +84,11 @@ nav{
 
 footer{
     background-color: black;
-    height: 50px;
-    
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 .btn{
@@ -101,3 +104,14 @@ footer{
     color: white;
     cursor: pointer;
 }
+
+#img_footer{
+    width: 15%;
+    height: 80%;
+}
+
+#titulo_footer{
+    color:white;
+    font-style: italic;
+}
+

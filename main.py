@@ -22,6 +22,10 @@ def cadastrar():
 def login():
     return redirect('/')
 
+@app.route('/principal')
+def principal():
+    return render_template('principal.html')
+
 
 @app.route('/cadastrarUsuario',methods=['POST'])
 def cadastrarUsuario():
@@ -41,7 +45,7 @@ def cadastrarUsuario():
 
     with open('usuarios.json', 'a') as usuariosTemp:
         json.dump(usuarios,usuariosTemp,indent=10)
-        usuariosTemp.write(' ')  # Adiciona um espaço após cada objeto JSON
+        usuariosTemp.write(' ') 
         usuariosTemp.write('\n') 
     return redirect('/')
 
