@@ -125,3 +125,12 @@ footer{
     text-align: center;
     font-weight: bold;
 }
+
+.body_adm{
+display: flex;
+justify-content: center;
+background-color: darkred;
+color:aliceblue;
+margin: 0;
+padding: 0;
+}

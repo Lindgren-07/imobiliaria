@@ -1,6 +1,30 @@
 from flask import Flask,redirect,render_template,request,flash
 import json
 import os.path
+from sqlalchemy import Column,String,Integer,Date,create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+try:
+    engine = create_engine('mssql+pyodbc://DESKTOP-3NB93KR/imobiliaria?driver=ODBC+Driver+17+for+SQL+Server')
+except:
+    print('error')
+else:
+    print('funcionou')
+
+Base = declarative_base()
+Session = sessionmaker(bind=engine)
+session = Session()
+
+class Cliente(Base):
+    __tablename__ = 'cliente'
+    id_cliente = Column(Integer,primary_key=True)
+    nome_cliente = Column(String,nullable=False)
+    senha_cliente = Column(String,nullable=False)
+    email_cliente = Column(String,nullable=False)
+    anoNasc_cliente = Column(Date, nullable=False)
+
+
 
 app = Flask(__name__)
 
@@ -34,9 +58,13 @@ def cadastrarUsuario():
     senha = request.form.get('senha')
     email = request.form.get('email')
     anoNasc = request.form.get('anoNasc')
-    sexo = request.form.get('genero')
+    
 
-    usuarios = dict()
+    novo_cliente = Cliente(nome_cliente=nome,senha_cliente=senha,email_cliente=email,anoNasc_cliente=anoNasc)
+    session.add(novo_cliente)
+    session.commit()
+
+    ''' usuarios = dict()
     usuarios['nome'] = nome
     usuarios['senha'] = senha
     usuarios['email'] = email
@@ -55,7 +83,7 @@ def cadastrarUsuario():
     usuariospy.append(usuarios)
 
     with open('usuarios.json', 'w') as gravarTemp:
-        json.dump(usuariospy,gravarTemp,indent=4)
+        json.dump(usuariospy,gravarTemp,indent=4)'''
 
     
 
@@ -80,4 +108,6 @@ def loginAdm():
 
 
 if __name__ == '__main__':
+    Base.metadata.create_all(bind=engine)
     app.run(debug=True)
+    
