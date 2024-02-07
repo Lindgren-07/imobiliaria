@@ -129,8 +129,11 @@ footer{
 .body_adm{
 display: flex;
 justify-content: center;
+align-items: center;
+flex-direction: column;
 background-color: darkred;
 color:aliceblue;
 margin: 0;
 padding: 0;
+gap:50px;
 }
