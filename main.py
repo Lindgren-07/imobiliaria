@@ -51,6 +51,11 @@ def login():
 def principal():
     return render_template('principal.html')
 
+@app.route('/adm')
+def adm():
+   usuarios = session.query(Cliente).all()
+   return render_template('adm.html',usuarios=usuarios)
+
 
 @app.route('/cadastrarUsuario',methods=['POST'])
 def cadastrarUsuario():
@@ -63,27 +68,6 @@ def cadastrarUsuario():
     novo_cliente = Cliente(nome_cliente=nome,senha_cliente=senha,email_cliente=email,anoNasc_cliente=anoNasc)
     session.add(novo_cliente)
     session.commit()
-
-    ''' usuarios = dict()
-    usuarios['nome'] = nome
-    usuarios['senha'] = senha
-    usuarios['email'] = email
-    usuarios['anoNasc'] = anoNasc
-
-    print(nome,senha,email,anoNasc,sexo)
-
-    
-        
-    if os.path.isfile('usuarios.json') and os.path.getsize('usuarios.json') > 0:
-        with open('usuarios.json') as usuarioTemp:
-            usuariospy = json.load(usuarioTemp)
-    else:
-        usuariospy = []
-    
-    usuariospy.append(usuarios)
-
-    with open('usuarios.json', 'w') as gravarTemp:
-        json.dump(usuariospy,gravarTemp,indent=4)'''
 
     
 
@@ -98,11 +82,21 @@ def loginAdm():
     senha = request.form.get('senha')
 
     if nome == 'adm' and senha == '000':
-        return render_template('adm.html')
+        return redirect('/adm')
     else:
         flash('nome ou senha inválido')
         return redirect('/')
 
+
+@app.route('/excluirUsuario', methods=['POST'])
+def excluirUsuario():
+    id = request.form.get('idUsuario')
+    nome = request.form.get('nome')
+    session.query(Cliente).filter(Cliente.id_cliente==id).delete()
+    session.commit()
+
+    flash(f'Cliente {nome} excluido com sucesso')
+    return redirect('/adm')
 
 
 

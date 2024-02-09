@@ -137,3 +137,66 @@ margin: 0;
 padding: 0;
 gap:50px;
 }
+
+.adm{
+    background-color: white;
+    color: black;
+   
+}
+
+hr{
+    height: 2px;
+    width: 100%;
+    background-color: darkred;
+    border: dashed;
+}
+.form_frente_adm{
+  width: 70%;
+  gap: 40px;
+  display: grid;
+}
+   
+   
+
+.form_fundo_adm{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background-color: white;
+    width: 40%;
+    height: 80%;
+    color: black;
+
+}
+
+#excluir_div{
+    flex-direction: column;
+    display: flex;
+    width: 20%;
+    height: 30px;
+    padding-top: 20px;
+}
+
+.btn_excluir{
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    
+}
+
+.btn_excluir:hover{
+    background-color: darkred;
+    color: black;
+    cursor: pointer;
+}
+
+.menssagem_flash_excluir{
+    width: 15%;
+    height: 38px;
+    background-color:black;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+}

@@ -8,26 +8,42 @@
 </head>
 
 <body class="body_adm">
-    
+    {% set menssagem = get_flashed_messages() %}
+    {% if menssagem %}
+        <div class="menssagem_flash_excluir">
+            {{menssagem[0]}}
+        </div>
+    {% endif %}
+
     <h1>Administração</h1>
 
-  
-        <div class="form_fundo">
-            <h1>Cadastre</h1>
-            <div class="form_frente">
-                <form action="/cadastroadm" method="post">
 
+    <div class="form_fundo_adm">
+        <h1>Excluir usuário</h1>
+        <div class="form_frente_adm">
+            {% if usuarios %}
+            {% for usuario in usuarios %}
+            <form action="/excluirUsuario" method="post" id="excluir_form">
+                <input type="hidden" name="idUsuario" value="{{usuario.id_cliente}}">
+                <input type="hidden" name="nome" value="{{usuario.nome_cliente}}">
+                <ul>
+                    <li> Nome: {{usuario.nome_cliente}}</li>
+                    <li> Senha: {{usuario.senha_cliente}}</li>
+                </ul>
+                <div id="excluir_div"><button type="submit" class="btn_excluir">EXCLUIR</button></div>
+            </form>
+            <hr>
+            
+            {% endfor %}
 
+            {% else %}
+            <h1>Não há clientes cadastrados</h1>
+            {% endif %}
 
-
-
-
-
-
-                </form>
-            </div>
         </div>
-   
+        
+    </div>
+
 
 
 
