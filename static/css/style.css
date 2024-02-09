@@ -200,3 +200,11 @@ hr{
     text-align: center;
     font-weight: bold;
 }
+
+.menssagem_flash_excluir_all {
+    display: none; /* Inicialmente oculta a mensagem flash */
+}
+
+.menssagem_flash_excluir_all.show {
+    display: block; /* Exibe a mensagem flash */
+}

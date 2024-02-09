@@ -78,14 +78,24 @@ def cadastrarUsuario():
 @app.route('/login', methods=['POST'])
 def loginAdm():
 
-    nome = request.form.get('nome')
+    clientes = session.query(Cliente).all()
+
+    email = request.form.get('email')
     senha = request.form.get('senha')
 
-    if nome == 'adm' and senha == '000':
+    if email == 'adm@adm' and senha == '000':
         return redirect('/adm')
+    for cliente in clientes:
+        if cliente.email_cliente == email and cliente.senha_cliente == senha:
+            return redirect('/principal')  
     else:
         flash('nome ou senha inválido')
         return redirect('/')
+    
+
+        
+
+   
 
 
 @app.route('/excluirUsuario', methods=['POST'])

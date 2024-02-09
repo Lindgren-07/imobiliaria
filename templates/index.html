@@ -21,16 +21,17 @@
     <section class="fundo">
         {% set menssagem = get_flashed_messages() %}
         {% if menssagem %}
-            <div class="menssagem_flash">
-                {{menssagem[0]}}
-            </div>
+        <div class="menssagem_flash menssagem_flash_excluir_all">
+            {{ menssagem[0] }}
+        </div>
+        
         {% endif %}
         <div class="form_fundo">
             <h1>Login</h1>
             <div class="form_frente">
                 <form action="/login" method="post">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" id="nome" placeholder="digite seu nome aqui" required>
+                    <label for="nome">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="digite seu email aqui" required>
                     <br>
                     <br>
                     <label for="senha">Senha:</label>
@@ -64,7 +65,7 @@
 
 
 
-
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>
