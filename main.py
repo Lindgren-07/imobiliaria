@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 try:
-    engine = create_engine('mssql+pyodbc://DESKTOP-3NB93KR/imobiliaria?driver=ODBC+Driver+17+for+SQL+Server')
+    engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/imobiliaria')
 except:
     print('error')
 else:
@@ -29,7 +29,7 @@ class Cliente(Base):
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-3NB93KR/cadastro?driver=ODBC+Driver+17+for+SQL+Server'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:jlindgren@localhost:5432/imobiliaria'
 app.secret_key = 'joao07'
 
 
