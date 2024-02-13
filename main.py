@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 try:
-    engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/imobiliaria')
+    engine = create_engine('postgresql://postgres:jlindgren@localhost:5433/imobiliaria')
 except:
     print('error')
 else:
@@ -23,13 +23,14 @@ class Cliente(Base):
     senha_cliente = Column(String,nullable=False)
     email_cliente = Column(String,nullable=False)
     anoNasc_cliente = Column(Date, nullable=False)
+    genero_cliente = Column(String,nullable=False)
 
 
 
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:jlindgren@localhost:5432/imobiliaria'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:jlindgren@localhost:5433/imobiliaria'
 app.secret_key = 'joao07'
 
 
@@ -47,14 +48,21 @@ def cadastrar():
 def login():
     return redirect('/')
 
+
 @app.route('/principal')
 def principal():
     return render_template('principal.html')
+
 
 @app.route('/adm')
 def adm():
    usuarios = session.query(Cliente).all()
    return render_template('adm.html',usuarios=usuarios)
+
+
+@app.route('/sobrenos')
+def sobrenos():
+    return render_template('sobrenos.html')
 
 
 @app.route('/cadastrarUsuario',methods=['POST'])
@@ -63,9 +71,11 @@ def cadastrarUsuario():
     senha = request.form.get('senha')
     email = request.form.get('email')
     anoNasc = request.form.get('anoNasc')
+    genero = request.form.get('genero')
+    
     
 
-    novo_cliente = Cliente(nome_cliente=nome,senha_cliente=senha,email_cliente=email,anoNasc_cliente=anoNasc)
+    novo_cliente = Cliente(nome_cliente=nome,senha_cliente=senha,email_cliente=email,anoNasc_cliente=anoNasc,genero_cliente=genero)
     session.add(novo_cliente)
     session.commit()
 

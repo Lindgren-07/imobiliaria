@@ -208,3 +208,12 @@ hr{
 .menssagem_flash_excluir_all.show {
     display: block; /* Exibe a mensagem flash */
 }
+
+.slider{
+    height: 300px;
+    width: 50%;
+    border: 2px solid black;
+
+
+
+}
