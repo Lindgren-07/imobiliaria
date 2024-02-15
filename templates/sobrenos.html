@@ -5,20 +5,27 @@
     <title>bomnegócio</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
-<body>
+<body id="body-all">
     <nav>
         <ul id="lista-menu">
             <li><img id="predio_menu" src="/static/imagens/predios_azul.png" alt="predio_menu"></li>
-            <li><a href="/index">Login</a></li>
-            <li><a href="/sobrenos">Sobre nós</a></li>
-            <li><a href="/cadastrar">Cadastrar</a></li>
-            <li><a href="/principal">Principal</a></li>
+            <li><a href="/index" class="nav-link">Login</a></li>
+            <li><a href="/sobrenos" class="nav-link">Sobre nós</a></li>
+            <li><a href="/cadastrar" class="nav-link">Cadastrar</a></li>
+            <li><div><input type="checkbox" class="checkbox" id="chk">
+                <label class="label-li" for="chk">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div></li>
         </ul>
     </nav>
 
-    <section class="fundo_sobrenos">
+    <section class="fundo_all">
         <div class="slider">
 
             <div class="slides">

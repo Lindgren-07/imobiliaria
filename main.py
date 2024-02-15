@@ -49,10 +49,6 @@ def login():
     return redirect('/')
 
 
-@app.route('/principal')
-def principal():
-    return render_template('principal.html')
-
 
 @app.route('/adm')
 def adm():
@@ -63,6 +59,11 @@ def adm():
 @app.route('/sobrenos')
 def sobrenos():
     return render_template('sobrenos.html')
+
+
+@app.route('/logado')
+def logado():
+    return render_template('logado.html')
 
 
 @app.route('/cadastrarUsuario',methods=['POST'])
@@ -97,7 +98,7 @@ def loginAdm():
         return redirect('/adm')
     for cliente in clientes:
         if cliente.email_cliente == email and cliente.senha_cliente == senha:
-            return redirect('/principal')  
+            return redirect('/logado')  
     else:
         flash('nome ou senha inválido')
         return redirect('/')

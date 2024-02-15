@@ -16,29 +16,28 @@ li{
     font-size: 18px;
 }
 
-a{
+.nav-link {
     text-decoration: none;
     color: aliceblue;
     position: relative;
-    transition:0.2s; 
+    transition: 0.2s; 
 }
 
-a::after{
+.nav-link::after {
     content: " ";
     width: 0%;
     height: 4px;
-    background-color:rgb(8, 83, 152);
+    background-color: rgb(8, 83, 152);
     position: absolute;
     bottom: -4px;
     left: 0;
-    transition:0.5s ease-in-out;
-
+    transition: 0.5s ease-in-out;
 }
 
-a:hover::after{
-width: 100%;
-
+.nav-link:hover::after {
+    width: 100%;
 }
+
 
 nav{
     background-color: black;
@@ -59,7 +58,6 @@ nav{
     width: 40%;
     height: 80%;
     opacity: 0.9;
-
     justify-content: center;
 }
 
@@ -150,12 +148,13 @@ hr{
     background-color: darkred;
     border: dashed;
 }
+
+
 .form_frente_adm{
   width: 70%;
   gap: 40px;
   display: grid;
 }
-   
    
 
 .form_fundo_adm{
@@ -309,7 +308,7 @@ hr{
     background-color:rgb(8, 83, 152);
 }
 
-.fundo_sobrenos{
+.fundo_all{
     background-color:rgb(8, 83, 152);
     background-size: 100%;
     flex-direction: column;
@@ -321,8 +320,82 @@ hr{
     justify-content: center;
     font-size: 17px;
     gap: 50px;
+    transition: background 0.2s linear;
 }
+
+.fundo_all.dark{
+    background-color: black;
+}
+
+nav.dark {
+    background-color: rgb(103, 103, 103);
+}
+
+nav.dark a {
+    color: black;
+}
+
+footer.dark {
+    background-color: rgb(103, 103, 103);
+}
+
+
+footer.dark h1#titulo_footer {
+    color: black;
+}
+
+nav.dark .nav-link::after {
+    background-color: white;
+}
+
 
 #texto_sobrenos{
     width: 50%;
+}
+
+.fas{
+background-color: rgb(8, 83, 152);
+}
+
+/*#body-all{
+    transition: background 0.2s linear;
+}
+
+#body-all.dark{
+    background-color: black;
+}*/
+
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.label-li{
+    background-color: rgb(8, 83, 152);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 12px;
+    width: 50px;
+    gap: 10px;
+    transform: scale(1.2);
+}
+
+.label-li .ball{
+    background-color:white;
+    border-radius: 50%;
+    position: absolute;
+    left: 1px;
+    height: 20px;
+    width: 22px;
+    transition: transform 0.2s linear;
+
+}
+
+.checkbox:checked + .label-li .ball{
+    transform: translateX(35px);
 }
