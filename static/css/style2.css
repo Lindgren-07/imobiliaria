@@ -1,0 +1,119 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.card-section{
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #efefef;
+}
+
+.slide-container{
+  max-width: 1120px;
+  width: 100%;
+  background-color: grey;
+  padding: 40px 0;
+}
+
+.card{
+  border-radius: 25px;
+  background-color: #fff;
+  height: 450px;
+}
+
+.slide-content{
+  margin: 0 40px;
+}
+
+.image-content,
+.card-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 14px;
+  
+
+}
+
+.image-content{
+  row-gap: 5px;
+  position: relative;
+  padding: 25px 0;
+  
+}
+
+
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-image: #fff;
+    padding: 3px;
+}
+
+.card-image .card-img{
+    height: 95%;
+    width: 95%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color:#333
+}
+
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.button{
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 16px;
+  background-color: rgb(160, 11, 160);
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover{
+  background-color: rgb(112, 44, 112);
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(160, 11, 160);
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(160, 11, 160);
+}
+
+.overlay::after{
+  border-radius: 0 25px 0 0;
+  background-color: #fff;
+}
